@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/klausbehnamshad/anchorprobe/blob/main/schema/anchor.schema.json",
+  "title": "Stable Text Anchor 0.1",
+  "description": "A quotation bound to a code-point range in the STA-C14N form of a text identified by its SHA-256. The profile fields are fixed in version 0.1 and are present so that no reader has to assume them.",
+  "type": "object",
+  "required": ["sta", "unit", "form", "newline", "bom", "text_sha256", "start", "end", "exact"],
+  "additionalProperties": true,
+  "properties": {
+    "sta": { "const": "0.1" },
+    "unit": { "const": "codepoint", "description": "Offsets count Unicode scalar values, never bytes, UTF-16 code units or grapheme clusters." },
+    "form": { "const": "NFC", "description": "Offsets and the hash are taken on NFC text." },
+    "newline": { "const": "LF", "description": "CRLF and lone CR were folded to LF before counting." },
+    "bom": { "const": "stripped", "description": "A single leading U+FEFF was removed before counting." },
+    "text_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$", "description": "SHA-256 of the UTF-8 encoding of the whole canonical text." },
+    "start": { "type": "integer", "minimum": 0, "description": "Code-point offset of the first selected character; inclusive." },
+    "end": { "type": "integer", "minimum": 0, "description": "Code-point offset after the last selected character; exclusive. end - start equals the code-point length of exact." },
+    "exact": { "type": "string", "description": "The selected text in canonical form; the second witness." },
+    "prefix": { "type": "string", "description": "Up to a few dozen code points before start, for quote-only resolution." },
+    "suffix": { "type": "string", "description": "Up to a few dozen code points after end." },
+    "source": { "type": "string", "description": "Identifier or IRI of the text, when known." }
+  }
+}

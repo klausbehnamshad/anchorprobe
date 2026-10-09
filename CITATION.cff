@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use anchorprobe or the Stable Text Anchor profile, please cite it as below."
+type: software
+title: "anchorprobe: Stable Text Anchor profile, drift forensics and conformance probes"
+version: 0.1.0
+date-released: 2026-10-09
+license: MIT
+repository-code: "https://github.com/klausbehnamshad/anchorprobe"
+authors:
+  - family-names: "Behnam Shad"
+    given-names: "Klaus"
+    orcid: "https://orcid.org/0000-0002-3601-9024"
+    affiliation: "Luxembourg Centre for Contemporary and Digital History (C²DH), University of Luxembourg"
+keywords:
+  - web annotation
+  - RFC 5147
+  - CTS URN
+  - Unicode normalization
+  - text anchoring
+  - digital humanities
+  - research software
+abstract: >
+  An offset into a text is a measurement with a unit, taken on a particular encoding form.
+  anchorprobe fixes both (code points, NFC, LF, no BOM), binds the anchor to a SHA-256 of
+  the canonical text, maps it to W3C Web Annotation selectors, RFC 5147 fragments and CTS
+  subreferences, explains deterministically why an anchor stopped matching, and probes
+  running text services for how they count and hash.

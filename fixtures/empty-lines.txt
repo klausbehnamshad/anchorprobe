@@ -1,0 +1,6 @@
+first
+
+   
+fourth has trailing spaces   
+
+last without newline

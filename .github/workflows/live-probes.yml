@@ -1,0 +1,83 @@
+name: live probes
+
+# Runs the conformance probes against real builds of textsurf and
+# annophis-text-service. Verdicts "differs" are findings and do not fail the
+# job; transport errors do. Reports are uploaded as artifacts.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 1 * *"
+  push:
+    branches: [main]
+    paths:
+      - "src/anchorprobe/probe.py"
+      - "fixtures/**"
+      - ".github/workflows/live-probes.yml"
+
+jobs:
+  textsurf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -e ".[dev]"
+      - name: start textsurf (container image proycon/textsurf, writable)
+        run: |
+          mkdir -p docroot
+          docker run -d --name textsurf -p 8080:8080 -e WRITABLE=1 -v "$PWD/docroot:/data" proycon/textsurf
+          for i in $(seq 1 30); do curl -fs http://localhost:8080/ >/dev/null && break; sleep 2; done
+          curl -fs http://localhost:8080/api-doc/openapi.json | head -c 300 || true
+      - name: probe
+        env:
+          ANCHORPROBE_TEXTSURF_URL: http://localhost:8080
+        run: |
+          anchorprobe probe textsurf --url "$ANCHORPROBE_TEXTSURF_URL" --out reports
+          pytest tests/test_live.py -k textsurf
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: textsurf-report
+          path: reports/
+      - if: always()
+        run: docker logs textsurf | tail -50 || true
+
+  annophis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.25"
+      - run: pip install -e ".[dev]"
+      - name: build annophis-text-service
+        run: go install github.com/GhentCDH/annophis-text-service/cmd/annophis-text-service@latest
+      - name: prepare txt_data and config
+        run: |
+          anchorprobe probe annophis --prepare-txt-data "$PWD/txt_data"
+          cat > config.json <<EOF
+          {"host": "127.0.0.1", "port": ":8081", "cex_source": "", "test_cex_source": "", "txt_data": "$PWD/txt_data"}
+          EOF
+      - name: start service
+        run: |
+          CONFIG="$PWD/config.json" "$(go env GOPATH)/bin/annophis-text-service" > annophis.log 2>&1 &
+          for i in $(seq 1 30); do curl -fs http://127.0.0.1:8081/cite >/dev/null && break; sleep 1; done
+          curl -fs http://127.0.0.1:8081/cite || (cat annophis.log; exit 1)
+      - name: probe
+        env:
+          ANCHORPROBE_ANNOPHIS_URL: http://127.0.0.1:8081
+        run: |
+          anchorprobe probe annophis --url "$ANCHORPROBE_ANNOPHIS_URL" --out reports
+          pytest tests/test_live.py -k annophis
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: annophis-report
+          path: reports/
+      - if: always()
+        run: tail -50 annophis.log || true

@@ -1,0 +1,1369 @@
+{
+  "name": "anchorprobe drift corpus",
+  "version": "0.1.0",
+  "unicode_version": "15.1.0",
+  "generator": "tools/make_fixtures.py (independent of the anchorprobe package)",
+  "fixtures": [
+    {
+      "id": "ascii-plain",
+      "file": "ascii-plain.txt",
+      "description": "ASCII only, LF. The control: every unit coincides here, so a unit bug stays invisible on ASCII test data.",
+      "traits": [
+        "ascii",
+        "lf"
+      ],
+      "bytes_sha256": "810fae52e2a09abd2f708b97a7b2671b944022642745f5cdbd8469b0b914cc76",
+      "raw": {
+        "bytes": 76,
+        "codepoints": 76,
+        "utf16": 76,
+        "graphemes": 76,
+        "has_bom": false,
+        "crlf": 0,
+        "lone_cr": 0,
+        "is_nfc": true,
+        "is_nfd": true
+      },
+      "canonical": {
+        "codepoints": 76,
+        "utf8": 76,
+        "utf16": 76,
+        "graphemes": 76,
+        "sha256": "810fae52e2a09abd2f708b97a7b2671b944022642745f5cdbd8469b0b914cc76",
+        "nfd_codepoints": 76,
+        "nfkc_codepoints": 76
+      },
+      "selections": [
+        {
+          "exact": "brown fox",
+          "canonical": [
+            10,
+            19
+          ],
+          "measurements": {
+            "codepoint": [
+              10,
+              19
+            ],
+            "utf8": [
+              10,
+              19
+            ],
+            "utf16": [
+              10,
+              19
+            ],
+            "grapheme": [
+              10,
+              19
+            ],
+            "nfd_codepoint": [
+              10,
+              19
+            ]
+          }
+        },
+        {
+          "exact": "ASCII",
+          "canonical": [
+            64,
+            69
+          ],
+          "measurements": {
+            "codepoint": [
+              64,
+              69
+            ],
+            "utf8": [
+              64,
+              69
+            ],
+            "utf16": [
+              64,
+              69
+            ],
+            "grapheme": [
+              64,
+              69
+            ],
+            "nfd_codepoint": [
+              64,
+              69
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "german-nfc",
+      "file": "german-nfc.txt",
+      "description": "German with umlauts and sharp s, NFC, LF.",
+      "traits": [
+        "nfc",
+        "lf",
+        "latin-diacritics"
+      ],
+      "bytes_sha256": "07ddc83502aba629140f21cca895a3182e4f43b36d8046a8a1fc8a6dc0926d81",
+      "raw": {
+        "bytes": 131,
+        "codepoints": 123,
+        "utf16": 123,
+        "graphemes": 123,
+        "has_bom": false,
+        "crlf": 0,
+        "lone_cr": 0,
+        "is_nfc": true,
+        "is_nfd": false
+      },
+      "canonical": {
+        "codepoints": 123,
+        "utf8": 131,
+        "utf16": 123,
+        "graphemes": 123,
+        "sha256": "07ddc83502aba629140f21cca895a3182e4f43b36d8046a8a1fc8a6dc0926d81",
+        "nfd_codepoints": 127,
+        "nfkc_codepoints": 123
+      },
+      "selections": [
+        {
+          "exact": "Göthe",
+          "canonical": [
+            45,
+            50
+          ],
+          "measurements": {
+            "codepoint": [
+              45,
+              50
+            ],
+            "utf8": [
+              45,
+              51
+            ],
+            "utf16": [
+              45,
+              50
+            ],
+            "grapheme": [
+              45,
+              50
+            ],
+            "nfd_codepoint": [
+              45,
+              51
+            ]
+          }
+        },
+        {
+          "exact": "Weiße Roß",
+          "canonical": [
+            80,
+            89
+          ],
+          "measurements": {
+            "codepoint": [
+              80,
+              89
+            ],
+            "utf8": [
+              83,
+              94
+            ],
+            "utf16": [
+              80,
+              89
+            ],
+            "grapheme": [
+              80,
+              89
+            ],
+            "nfd_codepoint": [
+              83,
+              92
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "german-nfd",
+      "file": "german-nfd.txt",
+      "description": "The same German text in NFD, as macOS file systems and some OCR engines produce it. Same hash as german-nfc after STA-C14N.",
+      "traits": [
+        "nfd",
+        "lf",
+        "latin-diacritics"
+      ],
+      "bytes_sha256": "0b13e17a9473c660764a7c64bc94be534c2371c84ac55ae2ed34dda9ec51652c",
+      "raw": {
+        "bytes": 135,
+        "codepoints": 127,
+        "utf16": 127,
+        "graphemes": 123,
+        "has_bom": false,
+        "crlf": 0,
+        "lone_cr": 0,
+        "is_nfc": false,
+        "is_nfd": true
+      },
+      "canonical": {
+        "codepoints": 123,
+        "utf8": 131,
+        "utf16": 123,
+        "graphemes": 123,
+        "sha256": "07ddc83502aba629140f21cca895a3182e4f43b36d8046a8a1fc8a6dc0926d81",
+        "nfd_codepoints": 127,
+        "nfkc_codepoints": 123
+      },
+      "selections": [
+        {
+          "exact": "Göthe",
+          "canonical": [
+            45,
+            50
+          ],
+          "measurements": {
+            "codepoint": [
+              45,
+              50
+            ],
+            "utf8": [
+              45,
+              51
+            ],
+            "utf16": [
+              45,
+              50
+            ],
+            "grapheme": [
+              45,
+              50
+            ],
+            "nfd_codepoint": [
+              45,
+              51
+            ]
+          }
+        },
+        {
+          "exact": "Weiße Roß",
+          "canonical": [
+            80,
+            89
+          ],
+          "measurements": {
+            "codepoint": [
+              80,
+              89
+            ],
+            "utf8": [
+              83,
+              94
+            ],
+            "utf16": [
+              80,
+              89
+            ],
+            "grapheme": [
+              80,
+              89
+            ],
+            "nfd_codepoint": [
+              83,
+              92
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "crlf-windows",
+      "file": "crlf-windows.txt",
+      "description": "German NFC text with CRLF line endings.",
+      "traits": [
+        "nfc",
+        "crlf"
+      ],
+      "bytes_sha256": "407b5afb8c87c321a1b60e1b923ea988cd9cba518a7439ed084fcbcb43011f7e",
+      "raw": {
+        "bytes": 134,
+        "codepoints": 126,
+        "utf16": 126,
+        "graphemes": 123,
+        "has_bom": false,
+        "crlf": 3,
+        "lone_cr": 0,
+        "is_nfc": true,
+        "is_nfd": false
+      },
+      "canonical": {
+        "codepoints": 123,
+        "utf8": 131,
+        "utf16": 123,
+        "graphemes": 123,
+        "sha256": "07ddc83502aba629140f21cca895a3182e4f43b36d8046a8a1fc8a6dc0926d81",
+        "nfd_codepoints": 127,
+        "nfkc_codepoints": 123
+      },
+      "selections": [
+        {
+          "exact": "Göthe",
+          "canonical": [
+            45,
+            50
+          ],
+          "measurements": {
+            "codepoint": [
+              45,
+              50
+            ],
+            "utf8": [
+              45,
+              51
+            ],
+            "utf16": [
+              45,
+              50
+            ],
+            "grapheme": [
+              45,
+              50
+            ],
+            "nfd_codepoint": [
+              45,
+              51
+            ]
+          }
+        },
+        {
+          "exact": "Grüße",
+          "canonical": [
+            91,
+            96
+          ],
+          "measurements": {
+            "codepoint": [
+              91,
+              96
+            ],
+            "utf8": [
+              96,
+              103
+            ],
+            "utf16": [
+              91,
+              96
+            ],
+            "grapheme": [
+              91,
+              96
+            ],
+            "nfd_codepoint": [
+              94,
+              100
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "bom-utf8",
+      "file": "bom-utf8.txt",
+      "description": "German NFC text with a leading UTF-8 byte order mark.",
+      "traits": [
+        "nfc",
+        "lf",
+        "bom"
+      ],
+      "bytes_sha256": "2ef77f877fb084eab2dca92ccfa314dfcff3a26058f315a65bb9852ae505068b",
+      "raw": {
+        "bytes": 134,
+        "codepoints": 124,
+        "utf16": 124,
+        "graphemes": 124,
+        "has_bom": true,
+        "crlf": 0,
+        "lone_cr": 0,
+        "is_nfc": true,
+        "is_nfd": false
+      },
+      "canonical": {
+        "codepoints": 123,
+        "utf8": 131,
+        "utf16": 123,
+        "graphemes": 123,
+        "sha256": "07ddc83502aba629140f21cca895a3182e4f43b36d8046a8a1fc8a6dc0926d81",
+        "nfd_codepoints": 127,
+        "nfkc_codepoints": 123
+      },
+      "selections": [
+        {
+          "exact": "Jena",
+          "canonical": [
+            0,
+            4
+          ],
+          "measurements": {
+            "codepoint": [
+              0,
+              4
+            ],
+            "utf8": [
+              0,
+              4
+            ],
+            "utf16": [
+              0,
+              4
+            ],
+            "grapheme": [
+              0,
+              4
+            ],
+            "nfd_codepoint": [
+              0,
+              4
+            ]
+          }
+        },
+        {
+          "exact": "Göthe",
+          "canonical": [
+            45,
+            50
+          ],
+          "measurements": {
+            "codepoint": [
+              45,
+              50
+            ],
+            "utf8": [
+              45,
+              51
+            ],
+            "utf16": [
+              45,
+              50
+            ],
+            "grapheme": [
+              45,
+              50
+            ],
+            "nfd_codepoint": [
+              45,
+              51
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "greek-polytonic",
+      "file": "greek-polytonic.txt",
+      "description": "Polytonic Greek with precomposed letters, plus alpha with macron and acute, a combination without a precomposed form: even NFC keeps the combining mark.",
+      "traits": [
+        "nfc",
+        "lf",
+        "greek",
+        "combining-in-nfc"
+      ],
+      "bytes_sha256": "8254c714c6fdc0bfbf7f9bf8633dfecb921bec35ee20a39ddd245d0d7a97bbd6",
+      "raw": {
+        "bytes": 132,
+        "codepoints": 83,
+        "utf16": 83,
+        "graphemes": 82,
+        "has_bom": false,
+        "crlf": 0,
+        "lone_cr": 0,
+        "is_nfc": true,
+        "is_nfd": false
+      },
+      "canonical": {
+        "codepoints": 83,
+        "utf8": 132,
+        "utf16": 83,
+        "graphemes": 82,
+        "sha256": "8254c714c6fdc0bfbf7f9bf8633dfecb921bec35ee20a39ddd245d0d7a97bbd6",
+        "nfd_codepoints": 100,
+        "nfkc_codepoints": 83
+      },
+      "selections": [
+        {
+          "exact": "ἀρχῇ",
+          "canonical": [
+            3,
+            7
+          ],
+          "measurements": {
+            "codepoint": [
+              3,
+              7
+            ],
+            "utf8": [
+              6,
+              16
+            ],
+            "utf16": [
+              3,
+              7
+            ],
+            "grapheme": [
+              3,
+              7
+            ],
+            "nfd_codepoint": [
+              4,
+              11
+            ]
+          }
+        },
+        {
+          "exact": "θεόν",
+          "canonical": [
+            44,
+            48
+          ],
+          "measurements": {
+            "codepoint": [
+              44,
+              48
+            ],
+            "utf8": [
+              86,
+              94
+            ],
+            "utf16": [
+              44,
+              48
+            ],
+            "grapheme": [
+              44,
+              48
+            ],
+            "nfd_codepoint": [
+              59,
+              64
+            ]
+          }
+        },
+        {
+          "exact": "ᾱ́",
+          "canonical": [
+            50,
+            52
+          ],
+          "measurements": {
+            "codepoint": [
+              50,
+              52
+            ],
+            "utf8": [
+              96,
+              101
+            ],
+            "utf16": [
+              50,
+              52
+            ],
+            "grapheme": [
+              50,
+              51
+            ],
+            "nfd_codepoint": [
+              66,
+              69
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "emoji-zwj",
+      "file": "emoji-zwj.txt",
+      "description": "Astral characters: a ZWJ family sequence (7 code points, 11 UTF-16 units, 1 grapheme), a flag and a skin-tone modifier.",
+      "traits": [
+        "astral",
+        "zwj",
+        "lf"
+      ],
+      "bytes_sha256": "150b385ba36e0bbc38a84f9351a24fcf5bc2b2b4e258229fa02efa8d1eecea63",
+      "raw": {
+        "bytes": 70,
+        "codepoints": 40,
+        "utf16": 48,
+        "graphemes": 32,
+        "has_bom": false,
+        "crlf": 0,
+        "lone_cr": 0,
+        "is_nfc": true,
+        "is_nfd": true
+      },
+      "canonical": {
+        "codepoints": 40,
+        "utf8": 70,
+        "utf16": 48,
+        "graphemes": 32,
+        "sha256": "150b385ba36e0bbc38a84f9351a24fcf5bc2b2b4e258229fa02efa8d1eecea63",
+        "nfd_codepoints": 40,
+        "nfkc_codepoints": 40
+      },
+      "selections": [
+        {
+          "exact": "flag",
+          "canonical": [
+            16,
+            20
+          ],
+          "measurements": {
+            "codepoint": [
+              16,
+              20
+            ],
+            "utf8": [
+              34,
+              38
+            ],
+            "utf16": [
+              20,
+              24
+            ],
+            "grapheme": [
+              10,
+              14
+            ],
+            "nfd_codepoint": [
+              16,
+              20
+            ]
+          }
+        },
+        {
+          "exact": "done",
+          "canonical": [
+            34,
+            38
+          ],
+          "measurements": {
+            "codepoint": [
+              34,
+              38
+            ],
+            "utf8": [
+              64,
+              68
+            ],
+            "utf16": [
+              42,
+              46
+            ],
+            "grapheme": [
+              26,
+              30
+            ],
+            "nfd_codepoint": [
+              34,
+              38
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "cuneiform-gothic",
+      "file": "cuneiform-gothic.txt",
+      "description": "Supplementary-plane historic scripts (cuneiform, Gothic, Old Italic) and ATF-style transliteration with diacritics and subscript digits.",
+      "traits": [
+        "astral",
+        "nfc",
+        "lf",
+        "latin-diacritics"
+      ],
+      "bytes_sha256": "83ec2ec7da9fab4b0818e044a61e9e619c152937277af7cffede34dabd016685",
+      "raw": {
+        "bytes": 109,
+        "codepoints": 71,
+        "utf16": 80,
+        "graphemes": 71,
+        "has_bom": false,
+        "crlf": 0,
+        "lone_cr": 0,
+        "is_nfc": true,
+        "is_nfd": false
+      },
+      "canonical": {
+        "codepoints": 71,
+        "utf8": 109,
+        "utf16": 80,
+        "graphemes": 71,
+        "sha256": "83ec2ec7da9fab4b0818e044a61e9e619c152937277af7cffede34dabd016685",
+        "nfd_codepoints": 75,
+        "nfkc_codepoints": 71
+      },
+      "selections": [
+        {
+          "exact": "Gothic",
+          "canonical": [
+            16,
+            22
+          ],
+          "measurements": {
+            "codepoint": [
+              16,
+              22
+            ],
+            "utf8": [
+              27,
+              33
+            ],
+            "utf16": [
+              19,
+              25
+            ],
+            "grapheme": [
+              16,
+              22
+            ],
+            "nfd_codepoint": [
+              17,
+              23
+            ]
+          }
+        },
+        {
+          "exact": "ṭup-pu",
+          "canonical": [
+            55,
+            61
+          ],
+          "measurements": {
+            "codepoint": [
+              55,
+              61
+            ],
+            "utf8": [
+              89,
+              97
+            ],
+            "utf16": [
+              64,
+              70
+            ],
+            "grapheme": [
+              55,
+              61
+            ],
+            "nfd_codepoint": [
+              57,
+              64
+            ]
+          }
+        },
+        {
+          "exact": "ḫa-za-nu",
+          "canonical": [
+            62,
+            70
+          ],
+          "measurements": {
+            "codepoint": [
+              62,
+              70
+            ],
+            "utf8": [
+              98,
+              108
+            ],
+            "utf16": [
+              71,
+              79
+            ],
+            "grapheme": [
+              62,
+              70
+            ],
+            "nfd_codepoint": [
+              65,
+              74
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "arabic-tashkeel",
+      "file": "arabic-tashkeel.txt",
+      "description": "Arabic with vowel marks (combining) and Arabic-Indic digits; logical order differs from visual order.",
+      "traits": [
+        "rtl",
+        "combining",
+        "lf"
+      ],
+      "bytes_sha256": "ee84c5405788b848795ee454268ec054f25b005e00fdde77344395544feaece1",
+      "raw": {
+        "bytes": 82,
+        "codepoints": 47,
+        "utf16": 47,
+        "graphemes": 34,
+        "has_bom": false,
+        "crlf": 0,
+        "lone_cr": 0,
+        "is_nfc": true,
+        "is_nfd": true
+      },
+      "canonical": {
+        "codepoints": 47,
+        "utf8": 82,
+        "utf16": 47,
+        "graphemes": 34,
+        "sha256": "ee84c5405788b848795ee454268ec054f25b005e00fdde77344395544feaece1",
+        "nfd_codepoints": 47,
+        "nfkc_codepoints": 47
+      },
+      "selections": [
+        {
+          "exact": "Zahlen",
+          "canonical": [
+            36,
+            42
+          ],
+          "measurements": {
+            "codepoint": [
+              36,
+              42
+            ],
+            "utf8": [
+              68,
+              74
+            ],
+            "utf16": [
+              36,
+              42
+            ],
+            "grapheme": [
+              23,
+              29
+            ],
+            "nfd_codepoint": [
+              36,
+              42
+            ]
+          }
+        },
+        {
+          "exact": "١٢٣",
+          "canonical": [
+            43,
+            46
+          ],
+          "measurements": {
+            "codepoint": [
+              43,
+              46
+            ],
+            "utf8": [
+              75,
+              81
+            ],
+            "utf16": [
+              43,
+              46
+            ],
+            "grapheme": [
+              30,
+              33
+            ],
+            "nfd_codepoint": [
+              43,
+              46
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ligatures-nfkc",
+      "file": "ligatures-nfkc.txt",
+      "description": "Compatibility characters: fi and ff ligatures, micro sign, ohm sign, fullwidth letters. NFC already folds the ohm sign (a singleton decomposition); NFKC changes the length.",
+      "traits": [
+        "compatibility",
+        "singleton",
+        "lf"
+      ],
+      "bytes_sha256": "41ba17e565837779f6b7a23b8189979f65f3e247c0e6cd24c8d91b1413c8d653",
+      "raw": {
+        "bytes": 66,
+        "codepoints": 51,
+        "utf16": 51,
+        "graphemes": 51,
+        "has_bom": false,
+        "crlf": 0,
+        "lone_cr": 0,
+        "is_nfc": false,
+        "is_nfd": false
+      },
+      "canonical": {
+        "codepoints": 51,
+        "utf8": 65,
+        "utf16": 51,
+        "graphemes": 51,
+        "sha256": "c5bfc1883c3e42367300fa78eb9b5c8818bc2ec94becaa2f8d875b602433e1fd",
+        "nfd_codepoints": 51,
+        "nfkc_codepoints": 53
+      },
+      "selections": [
+        {
+          "exact": "Zeichen",
+          "canonical": [
+            10,
+            17
+          ],
+          "measurements": {
+            "codepoint": [
+              10,
+              17
+            ],
+            "utf8": [
+              13,
+              20
+            ],
+            "utf16": [
+              10,
+              17
+            ],
+            "grapheme": [
+              10,
+              17
+            ],
+            "nfd_codepoint": [
+              10,
+              17
+            ]
+          }
+        },
+        {
+          "exact": "fullwidth",
+          "canonical": [
+            40,
+            49
+          ],
+          "measurements": {
+            "codepoint": [
+              40,
+              49
+            ],
+            "utf8": [
+              54,
+              63
+            ],
+            "utf16": [
+              40,
+              49
+            ],
+            "grapheme": [
+              40,
+              49
+            ],
+            "nfd_codepoint": [
+              40,
+              49
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "zero-width",
+      "file": "zero-width.txt",
+      "description": "Invisible characters that count: soft hyphen, zero width space, no-break space, word joiner, variation selector.",
+      "traits": [
+        "invisible",
+        "lf"
+      ],
+      "bytes_sha256": "a4671b72baefb5de1cb1ba35c13ccc3e90fa931b3060696fed1c12b0025337da",
+      "raw": {
+        "bytes": 67,
+        "codepoints": 59,
+        "utf16": 59,
+        "graphemes": 58,
+        "has_bom": false,
+        "crlf": 0,
+        "lone_cr": 0,
+        "is_nfc": true,
+        "is_nfd": true
+      },
+      "canonical": {
+        "codepoints": 59,
+        "utf8": 67,
+        "utf16": 59,
+        "graphemes": 58,
+        "sha256": "a4671b72baefb5de1cb1ba35c13ccc3e90fa931b3060696fed1c12b0025337da",
+        "nfd_codepoints": 59,
+        "nfkc_codepoints": 59
+      },
+      "selections": [
+        {
+          "exact": "hyphen zero",
+          "canonical": [
+            5,
+            16
+          ],
+          "measurements": {
+            "codepoint": [
+              5,
+              16
+            ],
+            "utf8": [
+              6,
+              17
+            ],
+            "utf16": [
+              5,
+              16
+            ],
+            "grapheme": [
+              5,
+              16
+            ],
+            "nfd_codepoint": [
+              5,
+              16
+            ]
+          }
+        },
+        {
+          "exact": "joiner",
+          "canonical": [
+            41,
+            47
+          ],
+          "measurements": {
+            "codepoint": [
+              41,
+              47
+            ],
+            "utf8": [
+              47,
+              53
+            ],
+            "utf16": [
+              41,
+              47
+            ],
+            "grapheme": [
+              41,
+              47
+            ],
+            "nfd_codepoint": [
+              41,
+              47
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "luxembourgish-french",
+      "file": "luxembourgish-french.txt",
+      "description": "Luxembourgish and French: diaeresis, cedilla, the oe ligature (not decomposed by any normalization form), guillemets.",
+      "traits": [
+        "nfc",
+        "lf",
+        "latin-diacritics",
+        "ligature"
+      ],
+      "bytes_sha256": "06419b2bc0869d729b572b7bd90b41af90fa7f2cd47eecf388dfaa82f69d9343",
+      "raw": {
+        "bytes": 87,
+        "codepoints": 77,
+        "utf16": 77,
+        "graphemes": 77,
+        "has_bom": false,
+        "crlf": 0,
+        "lone_cr": 0,
+        "is_nfc": true,
+        "is_nfd": false
+      },
+      "canonical": {
+        "codepoints": 77,
+        "utf8": 87,
+        "utf16": 77,
+        "graphemes": 77,
+        "sha256": "06419b2bc0869d729b572b7bd90b41af90fa7f2cd47eecf388dfaa82f69d9343",
+        "nfd_codepoints": 83,
+        "nfkc_codepoints": 77
+      },
+      "selections": [
+        {
+          "exact": "Ëlwent",
+          "canonical": [
+            28,
+            34
+          ],
+          "measurements": {
+            "codepoint": [
+              28,
+              34
+            ],
+            "utf8": [
+              31,
+              38
+            ],
+            "utf16": [
+              28,
+              34
+            ],
+            "grapheme": [
+              28,
+              34
+            ],
+            "nfd_codepoint": [
+              29,
+              36
+            ]
+          }
+        },
+        {
+          "exact": "cœur, garçon",
+          "canonical": [
+            43,
+            55
+          ],
+          "measurements": {
+            "codepoint": [
+              43,
+              55
+            ],
+            "utf8": [
+              48,
+              62
+            ],
+            "utf16": [
+              43,
+              55
+            ],
+            "grapheme": [
+              43,
+              55
+            ],
+            "nfd_codepoint": [
+              45,
+              58
+            ]
+          }
+        },
+        {
+          "exact": "Dësch",
+          "canonical": [
+            70,
+            75
+          ],
+          "measurements": {
+            "codepoint": [
+              70,
+              75
+            ],
+            "utf8": [
+              79,
+              85
+            ],
+            "utf16": [
+              70,
+              75
+            ],
+            "grapheme": [
+              70,
+              75
+            ],
+            "nfd_codepoint": [
+              75,
+              81
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mixed-newlines",
+      "file": "mixed-newlines.txt",
+      "description": "LF, CRLF, lone CR, NEL and LINE SEPARATOR in one file. STA folds CR and CRLF only; NEL and LS stay as content.",
+      "traits": [
+        "crlf",
+        "cr",
+        "nel",
+        "ls"
+      ],
+      "bytes_sha256": "6d06dbf51a4322faac9ac5020c9a9f5fc5525d363b8c7642adb9597570c0e83c",
+      "raw": {
+        "bytes": 62,
+        "codepoints": 59,
+        "utf16": 59,
+        "graphemes": 58,
+        "has_bom": false,
+        "crlf": 1,
+        "lone_cr": 1,
+        "is_nfc": true,
+        "is_nfd": true
+      },
+      "canonical": {
+        "codepoints": 58,
+        "utf8": 61,
+        "utf16": 58,
+        "graphemes": 58,
+        "sha256": "af99cc4ed391dbb5d921fb78d5db83cee3db20d3ef07426de953f322c3da8819",
+        "nfd_codepoints": 58,
+        "nfkc_codepoints": 58
+      },
+      "selections": [
+        {
+          "exact": "line three",
+          "canonical": [
+            18,
+            28
+          ],
+          "measurements": {
+            "codepoint": [
+              18,
+              28
+            ],
+            "utf8": [
+              18,
+              28
+            ],
+            "utf16": [
+              18,
+              28
+            ],
+            "grapheme": [
+              18,
+              28
+            ],
+            "nfd_codepoint": [
+              18,
+              28
+            ]
+          }
+        },
+        {
+          "exact": "line five",
+          "canonical": [
+            39,
+            48
+          ],
+          "measurements": {
+            "codepoint": [
+              39,
+              48
+            ],
+            "utf8": [
+              40,
+              49
+            ],
+            "utf16": [
+              39,
+              48
+            ],
+            "grapheme": [
+              39,
+              48
+            ],
+            "nfd_codepoint": [
+              39,
+              48
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "empty-lines",
+      "file": "empty-lines.txt",
+      "description": "Blank and whitespace-only lines, trailing spaces, no final newline. The annophis line-node numbering skips lines 2, 3 and 5.",
+      "traits": [
+        "blank-lines",
+        "no-trailing-newline"
+      ],
+      "bytes_sha256": "52aa34e0c4172a7b13ffef66021d8092c9e06eed0706c6d575c2999e5114efb4",
+      "raw": {
+        "bytes": 62,
+        "codepoints": 62,
+        "utf16": 62,
+        "graphemes": 62,
+        "has_bom": false,
+        "crlf": 0,
+        "lone_cr": 0,
+        "is_nfc": true,
+        "is_nfd": true
+      },
+      "canonical": {
+        "codepoints": 62,
+        "utf8": 62,
+        "utf16": 62,
+        "graphemes": 62,
+        "sha256": "52aa34e0c4172a7b13ffef66021d8092c9e06eed0706c6d575c2999e5114efb4",
+        "nfd_codepoints": 62,
+        "nfkc_codepoints": 62
+      },
+      "selections": [
+        {
+          "exact": "fourth",
+          "canonical": [
+            11,
+            17
+          ],
+          "measurements": {
+            "codepoint": [
+              11,
+              17
+            ],
+            "utf8": [
+              11,
+              17
+            ],
+            "utf16": [
+              11,
+              17
+            ],
+            "grapheme": [
+              11,
+              17
+            ],
+            "nfd_codepoint": [
+              11,
+              17
+            ]
+          }
+        },
+        {
+          "exact": "last",
+          "canonical": [
+            42,
+            46
+          ],
+          "measurements": {
+            "codepoint": [
+              42,
+              46
+            ],
+            "utf8": [
+              42,
+              46
+            ],
+            "utf16": [
+              42,
+              46
+            ],
+            "grapheme": [
+              42,
+              46
+            ],
+            "nfd_codepoint": [
+              42,
+              46
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

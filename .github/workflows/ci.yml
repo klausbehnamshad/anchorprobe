@@ -1,0 +1,35 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install --upgrade pip
+      - run: pip install -e ".[dev]"
+      - name: fixtures are reproducible from the generator
+        run: |
+          python tools/make_fixtures.py /tmp/regenerated
+          for f in fixtures/*.txt; do cmp "$f" "/tmp/regenerated/$(basename "$f")"; done
+          python - <<'EOF'
+          import json
+          a = json.load(open("fixtures/manifest.json")); b = json.load(open("/tmp/regenerated/manifest.json"))
+          a.pop("unicode_version"); b.pop("unicode_version")
+          assert a == b, "manifest differs from the regenerated one (check the Unicode version of the interpreter)"
+          EOF
+      - run: pytest
+      - run: anchorprobe fixtures
+      - run: anchorprobe hashes fixtures/german-nfc.txt
+      - run: anchorprobe matrix fixtures/cuneiform-gothic.txt --exact "ṭup-pu"

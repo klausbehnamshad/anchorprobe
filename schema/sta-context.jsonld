@@ -1,0 +1,8 @@
+{
+  "@context": {
+    "sta": "https://github.com/klausbehnamshad/anchorprobe/blob/main/spec/STABLE-TEXT-ANCHOR.md#",
+    "sta:textSha256": { "@id": "sta:textSha256", "@type": "http://www.w3.org/2001/XMLSchema#hexBinary" },
+    "sta:canonicalization": { "@id": "sta:canonicalization", "@type": "@id" },
+    "sta:version": { "@id": "sta:version" }
+  }
+}
